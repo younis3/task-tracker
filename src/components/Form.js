@@ -1,12 +1,19 @@
 import React from "react";
 import styles from "../styles/global.module.css";
 
-const Form = () => {
+const Form = ({input, setInput}) => {
+
+    const inputHandler = (e) => {
+        setInput(e.target.value);
+        console.log(input);
+    }
+
   return (
     <div className={styles["form-container"]}>
       <form className={styles["form"]} action="">
         <input
           className={styles["form-input"]}
+          onChange={inputHandler}
           placeholder="Add a task.."
           type="text"
         />
