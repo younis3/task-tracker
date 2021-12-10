@@ -43,7 +43,7 @@
 
 @media only screen and (max-width: 900px) {
   .form {
-    width: 90%;
+    width: 92%;
   }
 
   .form-input {
@@ -57,7 +57,7 @@
 
 /* ---------Form Styles End--------- */
 
-/* ToDo Styles*/
+/* TodoList Styles*/
 
 .toDoListContainer {
   display: flex;
@@ -66,9 +66,19 @@
 }
 
 .toDoList {
-  min-width: 40%;
+  min-width: 50%;
   margin: 20px;
 }
+
+@media only screen and (max-width: 900px) {
+  .toDoList {
+    min-width: 86%;
+  }
+}
+
+/* ---------TodoList Styles End--------- */
+
+/* Todo Item Styles*/
 
 .TodoContainer {
   list-style: none;
@@ -82,6 +92,8 @@
 .TodoItem {
   flex: 1;
   padding: 4px;
+  background-color: rgb(217, 236, 219);
+  font-weight: 500;
 }
 
 .check-btn {
@@ -90,6 +102,7 @@
   border: none;
   border-left: 2px solid rgb(0, 0, 0);
   cursor: pointer;
+  font-size: 15px;
 }
 
 .trash-btn {
@@ -98,18 +111,15 @@
   border: none;
   border-left: 2px solid rgb(0, 0, 0);
   border-right: 1px solid rgba(2, 1, 15, 0.322);
-
+  font-size: 15px;
   cursor: pointer;
 }
 
 @media only screen and (max-width: 900px) {
-  .toDoList {
-    min-width: 86%;
-  }
-
   .check-btn,
   .trash-btn {
-    width: 40px;
+    width: 45px;
   }
 }
-/* ---------ToDo Styles End--------- */
+
+/* ---------Todo Item Styles End--------- */

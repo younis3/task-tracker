@@ -6,10 +6,10 @@ const TodoItem = ({ text, completed, id }) => {
     <div className={styles["TodoContainer"]}>
       <li className={styles["TodoItem"]}>{text}</li>
       <button className={styles["check-btn"]}>
-        <i className="fas fa-check-square"></i>
+        <i className="far fa-check-square fa-lg"></i>
       </button>
       <button className={styles["trash-btn"]}>
-        <i className="fas fa-trash"></i>
+        <i className="far fa-trash-alt fa-lg"></i>
       </button>
     </div>
   );
