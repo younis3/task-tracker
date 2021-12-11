@@ -1,0 +1,56 @@
+/* Form Styles*/
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 60%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-input {
+  width: 80%;
+  border: none;
+  padding-left: 4px;
+  font-weight: 400;
+  font-size: larger;
+}
+
+.form-btn {
+  cursor: pointer;
+  width: 50px;
+  font-size: 30px;
+  border: none;
+  background-color: white;
+  color: rgb(26, 138, 95);
+}
+
+.form-select {
+  width: 20%;
+  height: 50px;
+  margin-left: 30px;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 900px) {
+  .form {
+    width: 92%;
+  }
+
+  .form-input {
+    width: 68%;
+  }
+
+  .form-select {
+    width: 32%;
+  }
+}

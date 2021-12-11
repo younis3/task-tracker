@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/global.module.css";
+import styles from "../styles/Form.module.css";
 
 const Form = ({ input, setInput, toDoList, setToDoList, setSlct }) => {
   const inputHandler = (e) => {
@@ -42,7 +42,7 @@ const Form = ({ input, setInput, toDoList, setToDoList, setSlct }) => {
           <option className={styles["form-option"]} value="Completed">
             Completed
           </option>
-          <option value="Not Completed">Not Completed</option>
+          <option value="Uncompleted">Uncompleted</option>
         </select>
       </form>
     </div>

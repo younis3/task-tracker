@@ -1,10 +1,14 @@
 import React from "react";
-import styles from "../styles/global.module.css";
+import styles from "../styles/TodoItem.module.css";
 
 const TodoItem = ({ clickedItem, toDoList, setToDoList }) => {
+
   const deleteTaskHandler = () => {
+    document.getElementById('TodoContainer').classList.add('remove');
+
     setToDoList(toDoList.filter((el) => el.id !== clickedItem.id));
   };
+
 
   const completedTaskHandler = () => {
     setToDoList(
@@ -18,7 +22,7 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList }) => {
   };
 
   return (
-    <div className={styles["TodoContainer"]}>
+    <div className={styles["TodoContainer"]} id="TodoContainer">
       <li
         className={`${styles["TodoItem"]} 
         ${clickedItem.completed ? styles["completed"] : styles[""]}`}
