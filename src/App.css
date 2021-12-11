@@ -1,0 +1,17 @@
+.App {
+  min-height: 100vh;
+  background-color: #202626;
+  background-color: #202626;
+  background-image: linear-gradient(
+    160deg,
+    #202626 0%,
+    #51817b 50%,
+    #66a8a1 100%
+  );
+}
+
+.title {
+  padding: 5vh 0vw;
+  color: white;
+  text-align: center;
+}
