@@ -25,7 +25,7 @@ function App() {
       case "completed":
         setFilteredList(toDoList.filter((el) => el.completed === true));
         break;
-      case "not completed":
+      case "uncompleted":
         setFilteredList(toDoList.filter((el) => el.completed === false));
         break;
       default:

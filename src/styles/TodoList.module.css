@@ -1,0 +1,18 @@
+/* TodoList Styles*/
+
+.toDoListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toDoList {
+  min-width: 50%;
+  margin: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+  .toDoList {
+    min-width: 86%;
+  }
+}

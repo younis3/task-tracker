@@ -1,0 +1,50 @@
+/* Todo Item Styles*/
+
+.TodoContainer {
+  list-style: none;
+  min-height: 2rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.TodoItem {
+  flex: 1;
+  padding: 4px;
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.check-btn {
+  background-color: rgba(106, 209, 111, 0.733);
+  width: 60px;
+  border: none;
+  border-left: 2px solid rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.trash-btn {
+  background-color: rgba(224, 99, 88, 0.726);
+  width: 60px;
+  border: none;
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 1px solid rgba(2, 1, 15, 0.322);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.8;
+  color: rgb(0, 0, 0);
+  background-color: rgba(1, 10, 2, 0.37);
+}
+
+@media only screen and (max-width: 900px) {
+  .check-btn,
+  .trash-btn {
+    width: 45px;
+  }
+}
