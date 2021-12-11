@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "../styles/global.module.css";
 
-const Form = ({ input, setInput, toDoList, setToDoList }) => {
+const Form = ({ input, setInput, toDoList, setToDoList, setSlct }) => {
   const inputHandler = (e) => {
     setInput(e.target.value);
-    console.log(input);
   };
 
   const addNewTaskHandler = (e) => {
@@ -14,6 +13,10 @@ const Form = ({ input, setInput, toDoList, setToDoList }) => {
       { text: input, completed: false, id: Math.random() * 1000 },
     ]);
     setInput("");
+  };
+
+  const slctStatusHandler = (e) => {
+    setSlct(e.target.value);
   };
 
   return (
@@ -27,7 +30,12 @@ const Form = ({ input, setInput, toDoList, setToDoList }) => {
           type="text"
         />
         <button className={`${styles["form-btn"]} fas fa-plus-square`}></button>
-        <select className={styles["form-select"]} name="" id="">
+        <select
+          className={styles["form-select"]}
+          name=""
+          id=""
+          onChange={slctStatusHandler}
+        >
           <option className={styles["form-option"]} value="All">
             All
           </option>

@@ -2,16 +2,16 @@ import React from "react";
 import TodoItem from "./TodoItem";
 import styles from "../styles/global.module.css";
 
-const TodoList = ({ toDoList }) => {
+const TodoList = ({ toDoList, setToDoList, filteredList }) => {
   return (
     <div className={styles["toDoListContainer"]}>
       <ul className={styles["toDoList"]}>
-        {toDoList.map((item) => (
+        {filteredList.map((item) => (
           <TodoItem
             key={item.id}
-            text={item.text}
-            completed={item.completed}
-            id={item.id}
+            clickedItem={item}
+            toDoList={toDoList}
+            setToDoList={setToDoList}
           />
         ))}
       </ul>
