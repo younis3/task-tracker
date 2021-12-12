@@ -13,6 +13,7 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
   };
 
   const onEnd = (result) => {
+    if (!result.destination) return;
     setFilteredList(
       reOrderList(filteredList, result.source.index, result.destination.index)
     );
@@ -21,11 +22,14 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
     );
   };
 
+
   return (
     <DragDropContext onDragEnd={onEnd}>
       <Droppable droppableId="123456">
         {(provided, snapshot) => (
-          <div ref={provided.innerRef}>
+          <div
+            ref={provided.innerRef}
+          >
             <div className={styles["toDoListContainer"]}>
               <ul className={styles["toDoList"]}>
                 {filteredList.map((item, index) => (
