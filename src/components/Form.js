@@ -16,7 +16,7 @@ const Form = ({ input, setInput, toDoList, setToDoList, setSlct }) => {
   };
 
   const slctStatusHandler = (e) => {
-    setSlct(e.target.value);
+    setSlct(e.target.value.toLowerCase());
   };
 
   return (

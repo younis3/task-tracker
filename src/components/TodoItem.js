@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/TodoItem.module.css";
 
-const TodoItem = ({ clickedItem, toDoList, setToDoList }) => {
+const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
+
+  const [isDraggable, setIsDraggable] = useState(true);
+
+  useEffect(() => {
+    slct === 'all' ? setIsDraggable(true) : setIsDraggable(false);
+  }, [slct])
 
   const deleteTaskHandler = () => {
     document.getElementById('TodoContainer').classList.add('remove');
@@ -23,11 +29,20 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList }) => {
 
   return (
     <div className={styles["TodoContainer"]} id="TodoContainer">
+      {isDraggable ?
+        <div>
+          <div className={styles["drag-btn"]} disabled>
+            <i className="fas fa-grip-lines" ></i>
+          </div>
+        </div>
+        :
+        <div></div>
+      }
       <li
         className={`${styles["TodoItem"]} 
         ${clickedItem.completed ? styles["completed"] : styles[""]}`}
       >
-        {clickedItem.text}
+        <div>{clickedItem.text}</div>
       </li>
       <button className={styles["check-btn"]} onClick={completedTaskHandler}>
         <i className="far fa-check-square fa-lg"></i>

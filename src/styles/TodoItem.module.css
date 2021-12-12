@@ -5,8 +5,9 @@
   min-height: 2rem;
   background-color: white;
   display: flex;
-  justify-content: space-between;
-  margin-top: 6px;
+  justify-content: space-around;
+  margin-top: 0.7vh;
+  margin-bottom: 0.7vh;
 }
 
 .TodoItem {
@@ -14,6 +15,17 @@
   padding: 4px;
   background-color: rgb(255, 255, 255);
   font-weight: 500;
+}
+
+.drag-btn {
+  background-color: rgba(255, 255, 255, 0.952);
+  color: rgba(0, 0, 0, 0.842);
+  border: none;
+  border-right: 4px solid rgba(0, 0, 0, 0.623);
+  cursor: grab;
+  font-size: 15px;
+  padding: 7px;
+  opacity: 0.8;
 }
 
 .check-btn {
