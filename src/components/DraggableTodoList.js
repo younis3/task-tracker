@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import styles from "../styles/TodoList.module.css";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 
 const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredList, slct }) => {
 
@@ -40,12 +40,17 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
                   >
                     {(provided, snapshot) => (
                       <div
-                        ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        style={{
+                          ...provided.draggableProps.style,
+                          color: snapshot.isDragging ? '#2D3627' : "black",
+                          opacity: snapshot.isDragging ? "0.8" : "1",
+                          fontSize: snapshot.isDragging ? "19px" : "16px",
+                        }}
                       >
                         <TodoItem
-                          // key={item.id}
                           clickedItem={item}
                           toDoList={toDoList}
                           setToDoList={setToDoList}
@@ -64,5 +69,6 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
     </DragDropContext>
   );
 };
+
 
 export default DraggableTodoList;

@@ -6,7 +6,7 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
   const [isDraggable, setIsDraggable] = useState(true);
 
   useEffect(() => {
-    slct == 'all' ? setIsDraggable(true) : setIsDraggable(false);
+    slct === 'all' ? setIsDraggable(true) : setIsDraggable(false);
   }, [slct])
 
   const deleteTaskHandler = () => {
