@@ -1,8 +1,10 @@
 import React from "react";
 import "./App.css";
 import { useState, useEffect } from "react";
+//components
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
+import DraggableTodoList from "./components/DraggableTodoList";
 
 function App() {
   const [input, setInput] = useState("");
@@ -19,9 +21,17 @@ function App() {
     }
   }, []);
 
+
+  useEffect(() => {
+    //save to local storage
+    localStorage.setItem("toDoList", JSON.stringify(toDoList));
+
+  }, [toDoList, slct]);
+
+
   useEffect(() => {
     //toggle options (view all items/completed/uncompleted)
-    switch (slct.toLowerCase()) {
+    switch (slct) {
       case "completed":
         setFilteredList(toDoList.filter((el) => el.completed === true));
         break;
@@ -31,9 +41,6 @@ function App() {
       default:
         setFilteredList(toDoList);
     }
-
-    //save to local storage
-    localStorage.setItem("toDoList", JSON.stringify(toDoList));
   }, [toDoList, slct]);
 
   return (
@@ -48,11 +55,24 @@ function App() {
         setToDoList={setToDoList}
         setSlct={setSlct}
       />
-      <TodoList
-        toDoList={toDoList}
-        setToDoList={setToDoList}
-        filteredList={filteredList}
-      />
+      {
+        slct === 'all' ?
+          <DraggableTodoList
+            toDoList={toDoList}
+            setToDoList={setToDoList}
+            filteredList={filteredList}
+            setFilteredList={setFilteredList}
+            slct={slct}
+          />
+          :
+          <TodoList
+            toDoList={toDoList}
+            setToDoList={setToDoList}
+            filteredList={filteredList}
+            setFilteredList={setFilteredList}
+            slct={slct}
+          />
+      }
     </div>
   );
 }

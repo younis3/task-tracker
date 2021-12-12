@@ -16,6 +16,17 @@
   font-weight: 500;
 }
 
+.drag-btn {
+  background-color: rgba(255, 255, 255, 0.952);
+  color: rgba(0, 0, 0, 0.842);
+  border: none;
+  border-right: 4px solid rgba(0, 0, 0, 0.623);
+  cursor: grab;
+  font-size: 15px;
+  padding: 8px;
+  opacity: 0.8;
+}
+
 .check-btn {
   background-color: rgba(106, 209, 111, 0.733);
   width: 60px;
