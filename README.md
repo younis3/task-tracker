@@ -4,7 +4,7 @@
 
 _____________________________________
 
-##### Features:
+##### App Features:
 * Add new tasks
 * Save tasks and changes to local storage
 * Mark completed/uncompleted
@@ -14,7 +14,7 @@ _____________________________________
 
 ##### Tech:
 * ReactJS
-* Libraries:
+* Libraries used:
   * React-Beautiful-Dnd (for drag & drop)
 
 
