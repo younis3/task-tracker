@@ -1,5 +1,32 @@
 /* Todo Item Styles*/
 
+@keyframes remove {
+  0% {
+    opacity: 1;
+    height: 100%;
+    margin: 0.09rem;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    min-height: 1.8rem;
+  }
+  95% {
+    opacity: 0;
+    height: 100%;
+    margin: 0.09rem;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    min-height: 1.8rem;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    margin: 0rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    min-height: 0rem;
+  }
+}
+
 .TodoContainer {
   list-style: none;
   min-height: 1.8rem;
@@ -9,6 +36,11 @@
   margin: 0.09rem;
   margin-top: 2px;
   margin-bottom: 2px;
+  /* remove task animation */
+  animation-name: remove;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+  animation-play-state: paused;
 }
 
 .notDraggable {
