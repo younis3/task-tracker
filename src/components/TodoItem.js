@@ -28,7 +28,7 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
   };
 
   return (
-    <div className={styles["TodoContainer"]} id="TodoContainer">
+    <div className={`${styles["TodoContainer"]} ${!isDraggable ? styles["notDraggable"] : styles[""]}`} id="TodoContainer">
       {isDraggable ?
         <div>
           <div className={styles["drag-btn"]} disabled>

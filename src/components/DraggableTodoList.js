@@ -45,9 +45,8 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
                         ref={provided.innerRef}
                         style={{
                           ...provided.draggableProps.style,
-                          color: snapshot.isDragging ? '#2D3627' : "black",
-                          opacity: snapshot.isDragging ? "0.8" : "1",
-                          fontSize: snapshot.isDragging ? "19px" : "16px",
+                          opacity: snapshot.isDragging ? "0.5" : "1",
+                          border: snapshot.isDragging ? "dashed 1.2px white" : "solid 1px rgba(0,0,0,0.01)",
                         }}
                       >
                         <TodoItem
