@@ -1,5 +1,9 @@
 ### Task Tracker App
 
+#### Demo Link: https://demotasktracker.netlify.app
+
+_____________________________________
+
 ##### Features:
 * Add new tasks
 * Save tasks and changes to local storage
@@ -9,8 +13,9 @@
 * Delete animation
 
 ##### Tech:
-* React
-* React-Beautiful-Dnd (for drag & drop)
+* ReactJS
+* Libraries:
+  * React-Beautiful-Dnd (for drag & drop)
 
 
-#### Demo Link: https://demotasktracker.netlify.app
+
