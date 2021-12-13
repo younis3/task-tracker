@@ -9,10 +9,13 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
     slct === 'all' ? setIsDraggable(true) : setIsDraggable(false);
   }, [slct])
 
-  const deleteTaskHandler = () => {
-    document.getElementById('TodoContainer').classList.add('remove');
-
-    setToDoList(toDoList.filter((el) => el.id !== clickedItem.id));
+  const deleteTaskHandler = (e) => {
+    const itemContainer = e.target.parentElement.parentElement;
+    itemContainer.style.animationPlayState = 'running';   //trigger remove animation
+    itemContainer.addEventListener('animationend', () => {
+      //delete item from list after the animation is over
+      setToDoList(toDoList.filter((el) => el.id !== clickedItem.id));
+    })
   };
 
 
@@ -27,8 +30,9 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
     );
   };
 
+
   return (
-    <div className={`${styles["TodoContainer"]} ${!isDraggable ? styles["notDraggable"] : styles[""]}`} id="TodoContainer">
+    <div className={`${styles["TodoContainer"]} ${!isDraggable ? styles["notDraggable"] : styles[""]}`}>
       {isDraggable ?
         <div>
           <div className={styles["drag-btn"]} disabled>
@@ -53,5 +57,6 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
     </div>
   );
 };
+
 
 export default TodoItem;
