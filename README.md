@@ -14,8 +14,5 @@ _____________________________________
 
 ##### Tech:
 * ReactJS
-* Libraries used:
-  * React-Beautiful-Dnd (for drag & drop)
-
-
+* React-Beautiful-Dnd (for drag & drop)
 
