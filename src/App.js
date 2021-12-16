@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList";
 import DraggableTodoList from "./components/DraggableTodoList";
 import Tabs from "./components/Tabs";
 import Progress from "./components/Progress";
+import Days from "./components/Days";
 
 function App() {
 
@@ -14,22 +15,23 @@ function App() {
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
+  const [day, setDay] = useState("sun");
 
 
   useEffect(() => {
     //get items from local storage
-    if (localStorage.getItem("toDoList") === null) {
-      localStorage.setItem("toDoList", JSON.stringify([]));
+    if (localStorage.getItem(`toDoList${day}`) === null) {
+      localStorage.setItem(`toDoList${day}`, JSON.stringify([]));
     } else {
-      setToDoList(JSON.parse(localStorage.getItem("toDoList")));
+      setToDoList(JSON.parse(localStorage.getItem(`toDoList${day}`)));
     }
-  }, []);
+  }, [day]);
 
 
   useEffect(() => {
     //save to local storage
-    localStorage.setItem("toDoList", JSON.stringify(toDoList));
-  }, [toDoList, slct]);
+    localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
+  }, [toDoList, slct, day]);
 
 
   useEffect(() => {
@@ -60,6 +62,8 @@ function App() {
         setToDoList={setToDoList}
       />
 
+      <Days day={day} setDay={setDay} />
+
       {toDoList.length !== 0 ? (
         <Tabs
           slct={slct}
@@ -88,6 +92,9 @@ function App() {
           slct={slct}
         />
       )}
+
+
+
     </div>
   );
 }
