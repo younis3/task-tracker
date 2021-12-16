@@ -33,7 +33,7 @@ const Tabs = ({ slct, setSlct, toDoList, setToDoList }) => {
                         Completed
                     </li>
                 </div>
-                <li className={styles.clear}>Clear Completed</li>
+                <i className={styles.clear}>Clear Completed</i>
             </ul>
         </div>
     )
