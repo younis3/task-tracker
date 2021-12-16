@@ -88,7 +88,7 @@
 }
 
 .completed {
-  opacity: 0.6;
+  opacity: 0.48;
   color: rgba(255, 255, 255, 0.856);
   font-weight: 400;
   border: none;
@@ -98,9 +98,9 @@
 @media only screen and (max-width: 900px) {
   .TodoItem {
     background-color: rgba(128, 25, 97, 0.329);
-    border: 1.8px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to left, #dbd3d394, #9e519e88);
+    /* border: 1.8px solid; */
+    /* border-image-slice: 1; */
+    /* border-image-source: linear-gradient(to left, #dbd3d394, #9e519e88); */
     border-left: none;
   }
 
@@ -110,15 +110,11 @@
   .trash-btn {
     width: 48px;
   }
-
-  .completed {
-    border: 1.8px solid rgba(0, 0, 0, 0);
-  }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .TodoItem:hover {
-    background-color: rgba(128, 25, 97, 0.534);
+    background-color: rgba(128, 25, 97, 0.425);
   }
   .check-btn:hover {
     background-color: rgba(73, 84, 131, 0.37);

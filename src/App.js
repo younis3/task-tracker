@@ -60,14 +60,16 @@ function App() {
         setToDoList={setToDoList}
       />
 
-      <Tabs
-        slct={slct}
-        setSlct={setSlct}
-        toDoList={toDoList}
-        setToDoList={setToDoList}
-      />
+      {toDoList.length !== 0 ? (
+        <Tabs
+          slct={slct}
+          setSlct={setSlct}
+          toDoList={toDoList}
+          setToDoList={setToDoList}
+        />) : (<div></div>)}
 
-      <Progress toDoList={toDoList} />
+      {toDoList.length !== 0 ? (
+        <Progress toDoList={toDoList} />) : (<div></div>)}
 
       {slct === "all" ? (
         <DraggableTodoList
