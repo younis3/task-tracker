@@ -1,0 +1,42 @@
+.tabs-container {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  list-style: none;
+  margin-right: 12px;
+}
+
+.clicked-tab {
+  color: rgb(69, 86, 133);
+  font-weight: bold;
+}
+
+.clear {
+  margin-left: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  list-style: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tab:hover {
+    color: rgba(169, 63, 184, 0.945);
+    font-weight: 600;
+  }
+  .clear:hover {
+    color: rgba(169, 63, 184, 0.945);
+    font-weight: 600;
+  }
+}
