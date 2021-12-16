@@ -92,7 +92,7 @@
   color: rgba(255, 255, 255, 0.856);
   font-weight: 400;
   border: none;
-  text-decoration: line-through 1.5px solid rgba(44, 40, 40, 0.819);
+  text-decoration: line-through 1.5px solid rgba(100, 91, 91, 0.7);
 }
 
 @media only screen and (max-width: 900px) {
