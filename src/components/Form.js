@@ -2,12 +2,20 @@ import React from "react";
 import styles from "../styles/Form.module.css";
 
 const Form = ({ input, setInput, toDoList, setToDoList }) => {
+
   const inputHandler = (e) => {
     setInput(e.target.value);
   };
 
   const addNewTaskHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault();   //prevent page refresh on form submit
+    //prevent user adding empty tasks
+    if (input.trim() === "") {
+      setInput("");   //in case user types empty spaces
+      e.target.querySelector('input').focus();
+      return;
+    }
+    //add item to list
     setToDoList([
       ...toDoList,
       { text: input, completed: false, id: Math.random() * 1000 },
