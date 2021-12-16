@@ -45,6 +45,7 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
       <li
         className={`${styles["TodoItem"]} 
         ${clickedItem.completed ? styles["completed"] : styles[""]}`}
+        onClick={completedTaskHandler}
       >
         <div>{clickedItem.text}</div>
       </li>

@@ -1,0 +1,60 @@
+/* Progress Bar Styles*/
+
+@keyframes progressAnime {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: 100;
+  }
+}
+
+.progressBar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.progressParent {
+  margin-top: 2.8vh;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  width: 65vw;
+  max-width: 500px;
+  opacity: 0.52;
+  height: 8px;
+  /* overflow: hidden; */
+}
+.progressBar {
+  display: block;
+  opacity: 0.95;
+  padding: 3px;
+  font-size: smaller;
+  text-align: center;
+  background-color: rgb(195, 37, 201);
+  border: none;
+  height: 100%;
+  width: 50%;
+  border-right: 8px solid rgba(38, 4, 41, 0);
+  border-radius: 1px 5px 50px;
+  background-image: linear-gradient(
+    90deg,
+    #516083,
+    #472037 15%,
+    #b34bff 35%,
+    #100320 50%,
+    #471769 65%,
+    #380624 85%,
+    #213155
+  );
+  background-size: 400% 100%;
+  animation: progressAnime 1.5s forwards;
+}
+
+.progressText {
+  margin-top: 2.5px;
+  text-align: center;
+  color: white;
+}

@@ -6,6 +6,7 @@ import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 import DraggableTodoList from "./components/DraggableTodoList";
 import Tabs from "./components/Tabs";
+import Progress from "./components/Progress";
 
 function App() {
 
@@ -65,6 +66,8 @@ function App() {
         toDoList={toDoList}
         setToDoList={setToDoList}
       />
+
+      <Progress toDoList={toDoList} />
 
       {slct === "all" ? (
         <DraggableTodoList
