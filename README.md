@@ -8,8 +8,11 @@ _____________________________________
 * Add new tasks
 * Save tasks and changes to local storage
 * Mark completed/uncompleted
+* View active or completed tasks
+* Progress bar
 * Reorder tasks in the list
 * Delete tasks
+* Clear all completed tasks
 * Delete animation
 
 ##### Tech:
