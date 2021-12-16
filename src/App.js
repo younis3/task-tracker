@@ -5,12 +5,15 @@ import { useState, useEffect } from "react";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 import DraggableTodoList from "./components/DraggableTodoList";
+import Tabs from "./components/Tabs";
 
 function App() {
+
   const [input, setInput] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
+
 
   useEffect(() => {
     //get items from local storage
@@ -25,7 +28,6 @@ function App() {
   useEffect(() => {
     //save to local storage
     localStorage.setItem("toDoList", JSON.stringify(toDoList));
-
   }, [toDoList, slct]);
 
 
@@ -35,7 +37,7 @@ function App() {
       case "completed":
         setFilteredList(toDoList.filter((el) => el.completed === true));
         break;
-      case "uncompleted":
+      case "active":
         setFilteredList(toDoList.filter((el) => el.completed === false));
         break;
       default:
@@ -43,36 +45,44 @@ function App() {
     }
   }, [toDoList, slct]);
 
+
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="title">Task Tracker App</h1>
+        <h5 className="title2">Developed by Y3.</h5>
       </header>
       <Form
         input={input}
         setInput={setInput}
         toDoList={toDoList}
         setToDoList={setToDoList}
-        setSlct={setSlct}
       />
-      {
-        slct === 'all' ?
-          <DraggableTodoList
-            toDoList={toDoList}
-            setToDoList={setToDoList}
-            filteredList={filteredList}
-            setFilteredList={setFilteredList}
-            slct={slct}
-          />
-          :
-          <TodoList
-            toDoList={toDoList}
-            setToDoList={setToDoList}
-            filteredList={filteredList}
-            setFilteredList={setFilteredList}
-            slct={slct}
-          />
-      }
+
+      <Tabs
+        slct={slct}
+        setSlct={setSlct}
+        toDoList={toDoList}
+        setToDoList={setToDoList}
+      />
+
+      {slct === "all" ? (
+        <DraggableTodoList
+          toDoList={toDoList}
+          setToDoList={setToDoList}
+          filteredList={filteredList}
+          setFilteredList={setFilteredList}
+          slct={slct}
+        />
+      ) : (
+        <TodoList
+          toDoList={toDoList}
+          setToDoList={setToDoList}
+          filteredList={filteredList}
+          setFilteredList={setFilteredList}
+          slct={slct}
+        />
+      )}
     </div>
   );
 }
