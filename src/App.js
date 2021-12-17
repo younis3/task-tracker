@@ -15,11 +15,26 @@ function App() {
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
-  const [day, setDay] = useState("sun");
+  const [day, setDay] = useState("");
+
+
+  //get items from local storage
+
+  useEffect(() => {
+    //get working day
+    const today = Date().slice(0, 3).toLowerCase();
+    setDay(today);
+
+    if (localStorage.getItem('day') === null) {
+      localStorage.setItem('day', JSON.stringify(today));  //set first day
+    } else {
+      setDay(JSON.parse(localStorage.getItem('day')));
+    }
+  }, []);
 
 
   useEffect(() => {
-    //get items from local storage
+    //get todo list
     if (localStorage.getItem(`toDoList${day}`) === null) {
       localStorage.setItem(`toDoList${day}`, JSON.stringify([]));
     } else {
@@ -28,8 +43,12 @@ function App() {
   }, [day]);
 
 
+  //get items from local storage
   useEffect(() => {
-    //save to local storage
+    //save working day
+    localStorage.setItem('day', JSON.stringify(day));
+
+    //save todo list
     localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
   }, [toDoList, slct, day]);
 
@@ -47,6 +66,7 @@ function App() {
         setFilteredList(toDoList);
     }
   }, [toDoList, slct]);
+
 
 
   return (
@@ -96,6 +116,7 @@ function App() {
     </div>
   );
 }
+
 
 
 export default App;

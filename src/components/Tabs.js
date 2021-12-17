@@ -21,6 +21,7 @@ const Tabs = ({ slct, setSlct, toDoList, setToDoList }) => {
         setSlct('all');
     }
 
+
     return (
         <div>
             <ul className={styles['tabs-container']} onClick={slctHandler}>
@@ -38,5 +39,6 @@ const Tabs = ({ slct, setSlct, toDoList, setToDoList }) => {
         </div>
     )
 }
+
 
 export default Tabs
