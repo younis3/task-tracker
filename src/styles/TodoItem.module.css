@@ -44,6 +44,9 @@
   padding: 5px;
   background-color: rgba(128, 25, 97, 0.432);
   font-weight: 500;
+  font-size: smaller;
+  padding-top: auto;
+  padding-bottom: auto;
   border: none;
   padding-left: 5px;
   color: rgba(242, 242, 243, 0.904);
@@ -54,11 +57,11 @@
 }
 
 .drag-btn {
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.7);
   border: none;
   cursor: grab;
-  padding: 5px;
-  margin-top: 3px;
+  padding: 2px;
+  margin-top: 2px;
   opacity: 0.5;
   margin-right: 2px;
 }
@@ -75,6 +78,16 @@
 
 .checkDone {
   background-color: rgba(195, 199, 218, 0.466);
+}
+
+.edit-btn {
+  background-color: rgba(173, 126, 107, 0.541);
+  color: rgba(248, 246, 246, 0.795);
+  width: 60px;
+  border: none;
+  margin-left: 0px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .trash-btn {
@@ -104,11 +117,10 @@
     border-left: none;
   }
 
-  .check-btn {
-    width: 54px;
-  }
+  .check-btn,
+  .edit-btn,
   .trash-btn {
-    width: 48px;
+    width: 49px;
   }
 }
 
@@ -118,6 +130,9 @@
   }
   .check-btn:hover {
     background-color: rgba(73, 84, 131, 0.37);
+  }
+  .edit-btn:hover {
+    background-color: rgba(167, 108, 85, 0.658);
   }
   .trash-btn:hover {
     background-color: rgba(180, 39, 70, 0.63);

@@ -18,6 +18,9 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
     })
   };
 
+  const editTaskHandler = () => {
+
+  }
 
   const completedTaskHandler = () => {
     setToDoList(
@@ -52,6 +55,11 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
       <button className={`${styles["check-btn"]} ${clickedItem.completed ? styles.checkDone : ''}`} onClick={completedTaskHandler}>
         <i className="far fa-check-square fa-lg"></i>
       </button>
+
+      <button className={styles["edit-btn"]} onClick={editTaskHandler}>
+        <i className="far fa-edit"></i>
+      </button>
+
       <button className={styles["trash-btn"]} onClick={deleteTaskHandler}>
         <i className="far fa-trash-alt fa-lg"></i>
       </button>

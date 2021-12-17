@@ -9,19 +9,19 @@
 }
 
 .title {
-  padding-top: 5vh;
+  padding-top: 4vh;
   color: rgba(255, 255, 255, 0.82);
   text-align: center;
 }
 
 .title2 {
-  padding-top: 1.1vh;
+  padding-top: 1vh;
   color: rgba(255, 255, 255, 0.637);
   text-align: center;
   opacity: 0.9;
 }
 
 .title2:last-child {
-  padding-bottom: 5vh;
+  padding-bottom: 4vh;
   opacity: 0.8;
 }
