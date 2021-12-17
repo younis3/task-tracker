@@ -1,4 +1,6 @@
-/* .editContainer {
+/* Edit Styles*/
+
+.editContainer {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -7,16 +9,119 @@
   align-items: center;
   left: 0%;
   top: 0%;
-  overflow-y: hidden;
-  z-index: 2;
-} */
+  z-index: 999;
+  backdrop-filter: blur(7px);
+  filter: drop-shadow(8px 5px 2px #0000001c);
+  /* overflow-y: hidden; */
+}
 
-.editContainer {
-  height: 8vh;
+.editBorder {
+  height: 25%;
+  width: 80%;
+  border: solid 2px rgba(107, 12, 94, 0.432);
+  background-color: rgba(255, 255, 255, 0.479);
   display: flex;
-  background-color: red;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  position: relative;
+  padding: 5px;
+}
+
+.editTitle {
+  padding: 10px;
+  color: rgba(78, 15, 50, 0.651);
+  opacity: 0.9;
+  position: absolute;
+  top: 4%;
+  font-weight: 600;
 }
 
 .edit {
-  /* display: block; */
+  padding: 12px;
+  color: rgba(78, 15, 50, 0.719);
+  opacity: 0.9;
+  position: absolute;
+  top: 20%;
+  font-weight: 700;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.days {
+  margin-top: 2vh;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.day {
+  text-align: center;
+  margin-left: 2vw;
+  margin-top: 1vh;
+  margin-right: 2vw;
+  background-color: rgb(241, 236, 239);
+  width: 14vw;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.curDay {
+  background-color: rgb(182, 102, 182);
+  color: white;
+  opacity: 1;
+}
+
+.saveBtn {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(109, 126, 151);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0.8;
+  margin-right: 2vw;
+  margin-left: 2vw;
+  position: absolute;
+  bottom: 8%;
+}
+
+.closeBtn {
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(175, 123, 168);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  opacity: 0.8;
+  margin-right: 2vw;
+  margin-left: 2vw;
+  position: absolute;
+  top: 8%;
+  right: 4%;
+}
+
+@media only screen and (max-width: 900px) {
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .day:hover {
+    background-color: rgba(182, 136, 163, 0.685);
+    color: white;
+  }
+  .saveBtn:hover {
+    background-color: rgb(78, 102, 138);
+  }
+  .closeBtn:hover {
+    background-color: rgb(158, 76, 147);
+  }
 }
