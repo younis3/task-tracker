@@ -17,7 +17,7 @@ function App() {
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
-  const [day, setDay] = useState("");
+  const [day, setDay] = useState('');
   const [editToggle, setEditToggle] = useState(false);
   const [editItem, setEditItem] = useState(null);
 
@@ -40,6 +40,7 @@ function App() {
   useEffect(() => {
     //get todo list
     if (localStorage.getItem(`toDoList${day}`) === null) {
+      setToDoList([]);
       localStorage.setItem(`toDoList${day}`, JSON.stringify([]));
     } else {
       setToDoList(JSON.parse(localStorage.getItem(`toDoList${day}`)));
@@ -47,14 +48,14 @@ function App() {
   }, [day]);
 
 
-  //get items from local storage
+  //save items to local storage
   useEffect(() => {
     //save working day
     localStorage.setItem('day', JSON.stringify(day));
 
     //save todo list
     localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
-  }, [toDoList, slct, day]);
+  }, [toDoList, day]);
 
 
   useEffect(() => {
@@ -96,6 +97,7 @@ function App() {
         setInput={setInput}
         toDoList={toDoList}
         setToDoList={setToDoList}
+        day={day}
       />
 
       <Days day={day} setDay={setDay} />
@@ -131,7 +133,7 @@ function App() {
           setEditItem={setEditItem}
         />
       )}
-      {editToggle && <Edit className='overlay' setEditToggle={setEditToggle} editItem={editItem} day={day} />}
+      {editToggle && <Edit className='overlay' setEditToggle={setEditToggle} editItem={editItem} day={day} toDoList={toDoList} />}
     </div>
   );
 }

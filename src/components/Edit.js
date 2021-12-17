@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import styles from "../styles/Edit.module.css";
 
-const Edit = ({ setEditToggle, editItem, day }) => {
-  const [changeDay, setChangeDay] = useState(day);
+const Edit = ({ setEditToggle, editItem, day, toDoList }) => {
+  const [changedDay, setChangedDay] = useState(day);
 
-  const changeDayHandler = (e) => {
+  const saveChange = () => {
+
+  }
+
+  const changedDayHandler = (e) => {
     const val = e.target.dataset.id;
-    setChangeDay(val);
+    setChangedDay(val);
+
   };
 
   const closeEditHandler = () => {
@@ -17,90 +22,82 @@ const Edit = ({ setEditToggle, editItem, day }) => {
     <div className={styles.editContainer}>
       <div className={styles.editBorder}>
         <h3 className={styles.editTitle}>Change Task Day</h3>
-        <h3 className={styles.edit}>{editItem.text}</h3>
+        <h3 className={styles.edit}>{`${editItem.text} ${editItem.day}`}</h3>
         <ul className={styles.days}>
           <li
-            className={`${styles.day} ${
-              changeDay === "sun" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "sun" ? styles.curDay : ""
+              } `}
             data-id="sun"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             Sun
           </li>
 
           <li
-            className={`${styles.day} ${
-              changeDay === "mon" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "mon" ? styles.curDay : ""
+              } `}
             data-id="mon"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             Mon
           </li>
 
           <li
-            className={`${styles.day} ${
-              changeDay === "tue" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "tue" ? styles.curDay : ""
+              } `}
             data-id="tue"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             tue
           </li>
 
           <li
-            className={`${styles.day} ${
-              changeDay === "wed" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "wed" ? styles.curDay : ""
+              } `}
             data-id="wed"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             Wed
           </li>
 
           <li
-            className={`${styles.day} ${
-              changeDay === "thu" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "thu" ? styles.curDay : ""
+              } `}
             data-id="thu"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             Thu
           </li>
 
           <li
-            className={`${styles.day} ${
-              changeDay === "fri" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "fri" ? styles.curDay : ""
+              } `}
             data-id="fri"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             Fri
           </li>
 
           <li
-            className={`${styles.day} ${
-              changeDay === "sat" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "sat" ? styles.curDay : ""
+              } `}
             data-id="sat"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             Sat
           </li>
 
           <li
-            className={`${styles.day} ${
-              changeDay === "later" ? styles.curDay : ""
-            } `}
+            className={`${styles.day} ${changedDay === "later" ? styles.curDay : ""
+              } `}
             data-id="later"
-            onClick={changeDayHandler}
+            onClick={changedDayHandler}
           >
             Later
           </li>
         </ul>
 
-        <button className={styles.saveBtn} onClick={closeEditHandler}>
+        <button className={styles.saveBtn} onClick={saveChange}>
           Save
         </button>
         <button className={styles.closeBtn} onClick={closeEditHandler}>
