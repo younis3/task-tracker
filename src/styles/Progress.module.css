@@ -21,7 +21,7 @@
   border: none;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
-  width: 65vw;
+  width: 35vw;
   max-width: 500px;
   opacity: 0.52;
   height: 8px;
@@ -58,4 +58,10 @@
   text-align: center;
   color: white;
   font-size: smaller;
+}
+
+@media only screen and (max-width: 950px) {
+  .progressParent {
+    width: 65vw;
+  }
 }

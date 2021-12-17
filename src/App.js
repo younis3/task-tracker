@@ -8,6 +8,8 @@ import DraggableTodoList from "./components/DraggableTodoList";
 import Tabs from "./components/Tabs";
 import Progress from "./components/Progress";
 import Days from "./components/Days";
+import Edit from "./components/Edit";
+
 
 function App() {
 
@@ -16,8 +18,8 @@ function App() {
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
   const [day, setDay] = useState("");
-  const [editDropDown, setEditDropDown] = useState(false);
-  const [editID, setEditID] = useState('');
+  const [editToggle, setEditToggle] = useState(false);
+  const [editItem, setEditItem] = useState(null);
 
 
   //get items from local storage
@@ -70,9 +72,20 @@ function App() {
   }, [toDoList, slct]);
 
 
+  //toggle background overlay when opening edit task modal
+  useEffect(() => {
+    const app = document.getElementById('app');
+    if (editToggle) {
+      app.classList.add('overlay');
+    }
+    else {
+      app.classList.remove('overlay');
+    }
+  }, [editToggle])
+
 
   return (
-    <div className="App">
+    <div className="App" id="app">
       <header className="App-header">
         <h1 className="title">Task Tracker</h1>
         <h5 className="title2">Your Weekly Task Management App</h5>
@@ -95,8 +108,7 @@ function App() {
           setToDoList={setToDoList}
         />) : (<div></div>)}
 
-      {toDoList.length !== 0 ? (
-        <Progress toDoList={toDoList} />) : (<div></div>)}
+      {toDoList.length !== 0 && <Progress toDoList={toDoList} />}
 
       {slct === "all" ? (
         <DraggableTodoList
@@ -105,6 +117,8 @@ function App() {
           filteredList={filteredList}
           setFilteredList={setFilteredList}
           slct={slct}
+          setEditToggle={setEditToggle}
+          setEditItem={setEditItem}
         />
       ) : (
         <TodoList
@@ -113,13 +127,11 @@ function App() {
           filteredList={filteredList}
           setFilteredList={setFilteredList}
           slct={slct}
-          editDropDown={editDropDown}
-          setEditDropDown={setEditDropDown}
-          editID={editID}
-          setEditID={setEditID}
-
+          setEditToggle={setEditToggle}
+          setEditItem={setEditItem}
         />
       )}
+      {editToggle && <Edit className='overlay' setEditToggle={setEditToggle} editItem={editItem} day={day} />}
     </div>
   );
 }

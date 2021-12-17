@@ -108,7 +108,7 @@
   text-decoration: line-through 1.5px solid rgba(100, 91, 91, 0.7);
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
   .TodoItem {
     background-color: rgba(128, 25, 97, 0.329);
     /* border: 1.8px solid; */

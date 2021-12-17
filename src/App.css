@@ -25,3 +25,7 @@
   padding-bottom: 4vh;
   opacity: 0.8;
 }
+
+.overlay {
+  background-color: rgba(2, 0, 0, 0.22);
+}

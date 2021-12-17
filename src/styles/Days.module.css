@@ -11,6 +11,7 @@
 
 .days {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -31,6 +32,17 @@
   opacity: 0.45;
 }
 
+.day:last-child {
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding-bottom: 4px;
+  padding-right: 6px;
+  padding-left: 6px;
+  margin-left: 1vw;
+  border: none;
+  background-color: rgba(228, 94, 134, 0.438);
+}
+
 .clickedDay {
   border: 1px solid rgba(119, 55, 143, 0.925);
   color: rgb(109, 36, 109);
@@ -44,7 +56,7 @@
   background-color: wheat;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
   .daysContainer {
     width: 88vw;
   }
@@ -55,5 +67,8 @@
     color: rgb(92, 63, 129);
     border: none;
     opacity: 0.9;
+  }
+  .day:last-child:hover {
+    color: whitesmoke;
   }
 }

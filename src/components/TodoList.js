@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import TodoItem from "./TodoItem";
 import styles from "../styles/TodoList.module.css";
-import Edit from "./Edit";
 
-const TodoList = ({ toDoList, setToDoList, filteredList, slct, editDropDown, setEditDropDown, setEditID }) => {
+const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditToggle, setEditItem }) => {
 
   useEffect(() => {
 
@@ -19,12 +18,10 @@ const TodoList = ({ toDoList, setToDoList, filteredList, slct, editDropDown, set
             toDoList={toDoList}
             setToDoList={setToDoList}
             slct={slct}
-            editDropDown={editDropDown}
-            setEditDropDown={setEditDropDown}
-            setEditID={setEditID}
+            setEditToggle={setEditToggle}
+            setEditItem={setEditItem}
           />
         ))}
-        {/* {editDropDown && <Edit />} */}
       </ul>
     </div>
   );

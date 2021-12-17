@@ -59,6 +59,13 @@ const Days = ({ day, setDay }) => {
         >
           Sat
         </li>
+        <li
+          className={`${styles.day} ${day === "later" ? styles.clickedDay : ""} `}
+          data-id="later"
+          onClick={daySlct}
+        >
+          Later
+        </li>
       </ul>
     </div>
   );

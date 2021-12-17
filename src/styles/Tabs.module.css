@@ -44,7 +44,7 @@
   opacity: 0.9;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
   .tabs-container {
     justify-content: space-around;
   }
