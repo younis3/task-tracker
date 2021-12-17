@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import styles from "../styles/Edit.module.css";
 
-const Edit = ({ setEditToggle, editItem, day, toDoList }) => {
+const Edit = ({ day, setEditToggle, editItem, toDoList, setToDoList }) => {
   const [changedDay, setChangedDay] = useState(day);
 
   const saveChange = () => {
+    setToDoList(
+      toDoList.map((todo) => {
+        if (todo.id === editItem.id) {
+          return { ...todo, day: changedDay };
+        }
+        return todo;
+      }))
+    closeEditHandler();
 
   }
 

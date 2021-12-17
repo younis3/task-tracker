@@ -16,13 +16,11 @@ function App() {
   const [input, setInput] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
-  const [filteredList, setFilteredList] = useState([]);
+  const [filteredList, setFilteredList] = useState(toDoList);
   const [day, setDay] = useState('');
   const [editToggle, setEditToggle] = useState(false);
   const [editItem, setEditItem] = useState(null);
 
-
-  //get items from local storage
 
   useEffect(() => {
     //get working day
@@ -37,15 +35,34 @@ function App() {
   }, []);
 
 
+
+  //get items from local storage
   useEffect(() => {
     //get todo list
-    if (localStorage.getItem(`toDoList${day}`) === null) {
+    if (localStorage.getItem('toDoList') === null) {
       setToDoList([]);
-      localStorage.setItem(`toDoList${day}`, JSON.stringify([]));
+      localStorage.setItem('toDoList', JSON.stringify([]));
     } else {
-      setToDoList(JSON.parse(localStorage.getItem(`toDoList${day}`)));
+      setToDoList(JSON.parse(localStorage.getItem('toDoList')));
     }
-  }, [day]);
+  }, []);
+
+
+
+  useEffect(() => {
+    //toggle filtering toDoList - days & options (view all items/completed/uncompleted)
+    switch (slct) {
+      case "completed":
+        setFilteredList(toDoList.filter((el) => el.day === day && el.completed === true));
+        break;
+      case "active":
+        setFilteredList(toDoList.filter((el) => el.day === day && el.completed === false));
+        break;
+      default:
+        setFilteredList(toDoList.filter((el) => el.day === day))
+    }
+  }, [toDoList, slct, day]);
+
 
 
   //save items to local storage
@@ -54,24 +71,10 @@ function App() {
     localStorage.setItem('day', JSON.stringify(day));
 
     //save todo list
-    localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
+    console.log(toDoList);
+    localStorage.setItem('toDoList', JSON.stringify(toDoList));
+    console.log(JSON.parse(localStorage.getItem('toDoList')));
   }, [toDoList, day]);
-
-
-  useEffect(() => {
-    //toggle options (view all items/completed/uncompleted)
-    switch (slct) {
-      case "completed":
-        setFilteredList(toDoList.filter((el) => el.completed === true));
-        break;
-      case "active":
-        setFilteredList(toDoList.filter((el) => el.completed === false));
-        break;
-      default:
-        setFilteredList(toDoList);
-    }
-  }, [toDoList, slct]);
-
 
   //toggle background overlay when opening edit task modal
   useEffect(() => {
@@ -102,7 +105,7 @@ function App() {
 
       <Days day={day} setDay={setDay} />
 
-      {toDoList.length !== 0 ? (
+      {filteredList.length !== 0 ? (
         <Tabs
           slct={slct}
           setSlct={setSlct}
@@ -110,7 +113,7 @@ function App() {
           setToDoList={setToDoList}
         />) : (<div></div>)}
 
-      {toDoList.length !== 0 && <Progress toDoList={toDoList} />}
+      {filteredList.length !== 0 && <Progress toDoList={toDoList} day={day} />}
 
       {slct === "all" ? (
         <DraggableTodoList
@@ -133,7 +136,13 @@ function App() {
           setEditItem={setEditItem}
         />
       )}
-      {editToggle && <Edit className='overlay' setEditToggle={setEditToggle} editItem={editItem} day={day} toDoList={toDoList} />}
+      {editToggle && <Edit className='overlay'
+        setEditToggle={setEditToggle}
+        day={day}
+        editItem={editItem}
+        toDoList={toDoList}
+        setToDoList={setToDoList}
+      />}
     </div>
   );
 }

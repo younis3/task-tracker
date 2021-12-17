@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TodoItem from "./TodoItem";
 import styles from "../styles/TodoList.module.css";
 
 const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditToggle, setEditItem }) => {
 
-  useEffect(() => {
-
-  }, [])
 
   return (
     <div className={styles["toDoListContainer"]}>
