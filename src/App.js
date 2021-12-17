@@ -93,9 +93,6 @@ function App() {
           slct={slct}
         />
       )}
-
-
-
     </div>
   );
 }
