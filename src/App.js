@@ -13,11 +13,12 @@ import Edit from "./components/Edit";
 
 function App() {
 
+
   const [input, setInput] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
-  const [filteredList, setFilteredList] = useState(toDoList);
-  const [day, setDay] = useState('');
+  const [filteredList, setFilteredList] = useState([]);
+  const [day, setDay] = useState(null);
   const [editToggle, setEditToggle] = useState(false);
   const [editItem, setEditItem] = useState(null);
 
@@ -39,13 +40,13 @@ function App() {
   //get items from local storage
   useEffect(() => {
     //get todo list
-    if (localStorage.getItem('toDoList') === null) {
+    if (localStorage.getItem(`toDoList${day}`) === null) {
       setToDoList([]);
-      localStorage.setItem('toDoList', JSON.stringify([]));
+      localStorage.setItem(`toDoList${day}`, JSON.stringify([]));
     } else {
-      setToDoList(JSON.parse(localStorage.getItem('toDoList')));
+      setToDoList(JSON.parse(localStorage.getItem(`toDoList${day}`)));
     }
-  }, []);
+  }, [day]);
 
 
 
@@ -53,13 +54,13 @@ function App() {
     //toggle filtering toDoList - days & options (view all items/completed/uncompleted)
     switch (slct) {
       case "completed":
-        setFilteredList(toDoList.filter((el) => el.day === day && el.completed === true));
+        setFilteredList(toDoList.filter((el) => el.completed === true));
         break;
       case "active":
-        setFilteredList(toDoList.filter((el) => el.day === day && el.completed === false));
+        setFilteredList(toDoList.filter((el) => el.completed === false));
         break;
       default:
-        setFilteredList(toDoList.filter((el) => el.day === day))
+        setFilteredList(toDoList);
     }
   }, [toDoList, slct, day]);
 
@@ -72,9 +73,10 @@ function App() {
 
     //save todo list
     console.log(toDoList);
-    localStorage.setItem('toDoList', JSON.stringify(toDoList));
-    console.log(JSON.parse(localStorage.getItem('toDoList')));
+    localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
+    console.log(JSON.parse(localStorage.getItem(`toDoList${day}`)));
   }, [toDoList, day]);
+
 
   //toggle background overlay when opening edit task modal
   useEffect(() => {

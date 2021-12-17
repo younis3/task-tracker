@@ -8,22 +8,24 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
   const reOrderList = (list, startIndex, endIndex) => {
     console.log(startIndex);
     console.log(endIndex);
-
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
     result.splice(endIndex, 0, removed);
     return result;
   };
 
+
   const onEnd = (result) => {
     if (!result.destination) return;
-
     setFilteredList(
       reOrderList(filteredList, result.source.index, result.destination.index)
     );
 
-  }
+    setToDoList(
+      reOrderList(filteredList, result.source.index, result.destination.index)
+    );
 
+  }
 
 
   return (
