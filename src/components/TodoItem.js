@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/TodoItem.module.css";
 
-const TodoItem = ({ clickedItem, toDoList, setToDoList, slct, setEditDropDown, setEditItem }) => {
+const TodoItem = ({ clickedItem, toDoList, setToDoList, slct, setEditToggle, setEditItem }) => {
 
   const [isDraggable, setIsDraggable] = useState(true);
 
@@ -19,7 +19,7 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct, setEditDropDown, s
   };
 
   const editTaskHandler = () => {
-    setEditDropDown(true);
+    setEditToggle(true);
     setEditItem(clickedItem);
   }
 

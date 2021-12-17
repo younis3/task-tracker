@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import TodoItem from "./TodoItem";
 import styles from "../styles/TodoList.module.css";
 
-const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditDropDown, setEditItem }) => {
+const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditToggle, setEditItem }) => {
 
   useEffect(() => {
 
@@ -18,7 +18,7 @@ const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditDropDown, 
             toDoList={toDoList}
             setToDoList={setToDoList}
             slct={slct}
-            setEditDropDown={setEditDropDown}
+            setEditToggle={setEditToggle}
             setEditItem={setEditItem}
           />
         ))}

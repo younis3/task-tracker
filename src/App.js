@@ -18,7 +18,7 @@ function App() {
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
   const [day, setDay] = useState("");
-  const [editDropDown, setEditDropDown] = useState(false);
+  const [editToggle, setEditToggle] = useState(false);
   const [editItem, setEditItem] = useState(null);
 
 
@@ -75,13 +75,13 @@ function App() {
   //toggle background overlay when opening edit task modal
   useEffect(() => {
     const app = document.getElementById('app');
-    if (editDropDown) {
+    if (editToggle) {
       app.classList.add('overlay');
     }
     else {
       app.classList.remove('overlay');
     }
-  }, [editDropDown])
+  }, [editToggle])
 
 
   return (
@@ -117,7 +117,7 @@ function App() {
           filteredList={filteredList}
           setFilteredList={setFilteredList}
           slct={slct}
-          setEditDropDown={setEditDropDown}
+          setEditToggle={setEditToggle}
           setEditItem={setEditItem}
         />
       ) : (
@@ -127,11 +127,11 @@ function App() {
           filteredList={filteredList}
           setFilteredList={setFilteredList}
           slct={slct}
-          setEditDropDown={setEditDropDown}
+          setEditToggle={setEditToggle}
           setEditItem={setEditItem}
         />
       )}
-      {editDropDown && <Edit className='overlay' setEditDropDown={setEditDropDown} editItem={editItem} day={day} />}
+      {editToggle && <Edit className='overlay' setEditToggle={setEditToggle} editItem={editItem} day={day} />}
     </div>
   );
 }

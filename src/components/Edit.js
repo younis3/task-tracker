@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/Edit.module.css";
 
-const Edit = ({ setEditDropDown, editItem, day }) => {
+const Edit = ({ setEditToggle, editItem, day }) => {
   const [changeDay, setChangeDay] = useState(day);
 
   const changeDayHandler = (e) => {
@@ -10,7 +10,7 @@ const Edit = ({ setEditDropDown, editItem, day }) => {
   };
 
   const closeEditHandler = () => {
-    setEditDropDown(false);
+    setEditToggle(false);
   };
 
   return (
