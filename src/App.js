@@ -16,6 +16,8 @@ function App() {
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
   const [day, setDay] = useState("");
+  const [editDropDown, setEditDropDown] = useState(false);
+  const [editID, setEditID] = useState('');
 
 
   //get items from local storage
@@ -111,6 +113,11 @@ function App() {
           filteredList={filteredList}
           setFilteredList={setFilteredList}
           slct={slct}
+          editDropDown={editDropDown}
+          setEditDropDown={setEditDropDown}
+          editID={editID}
+          setEditID={setEditID}
+
         />
       )}
     </div>
