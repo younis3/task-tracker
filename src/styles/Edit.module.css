@@ -1,0 +1,22 @@
+/* .editContainer {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0%;
+  top: 0%;
+  overflow-y: hidden;
+  z-index: 2;
+} */
+
+.editContainer {
+  height: 8vh;
+  display: flex;
+  background-color: red;
+}
+
+.edit {
+  /* display: block; */
+}

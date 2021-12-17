@@ -1,0 +1,59 @@
+/* Days Styles*/
+
+.daysContainer {
+  text-align: center;
+  width: 36vw;
+  margin-top: 2.5vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3vh;
+}
+
+.days {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.day {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.001);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  padding-left: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  opacity: 0.45;
+}
+
+.clickedDay {
+  border: 1px solid rgba(119, 55, 143, 0.925);
+  color: rgb(109, 36, 109);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  opacity: 0.9;
+}
+
+.droppable {
+  background-color: wheat;
+}
+
+@media only screen and (max-width: 900px) {
+  .daysContainer {
+    width: 88vw;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .day:hover {
+    color: rgb(92, 63, 129);
+    border: none;
+    opacity: 0.9;
+  }
+}

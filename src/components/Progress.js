@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Progress.module.css";
 
 const Progress = ({ toDoList }) => {
+
   const [percent, setPercent] = useState(0);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const Progress = ({ toDoList }) => {
           className={styles.progressBar}
           style={{ width: `${percent}%` }}
         ></span>
-        <div className={styles.progressText}>{percent.toFixed()}% Completed</div>
+        <div className={styles.progressText} id="pBar">{percent.toFixed()}% Completed</div>
       </div>
     </div>
   );

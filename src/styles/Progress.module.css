@@ -54,7 +54,8 @@
 }
 
 .progressText {
-  margin-top: 2.5px;
+  margin-top: 4px;
   text-align: center;
   color: white;
+  font-size: smaller;
 }

@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList";
 import DraggableTodoList from "./components/DraggableTodoList";
 import Tabs from "./components/Tabs";
 import Progress from "./components/Progress";
+import Days from "./components/Days";
 
 function App() {
 
@@ -14,22 +15,44 @@ function App() {
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
+  const [day, setDay] = useState("");
+  const [editDropDown, setEditDropDown] = useState(false);
+  const [editID, setEditID] = useState('');
 
+
+  //get items from local storage
 
   useEffect(() => {
-    //get items from local storage
-    if (localStorage.getItem("toDoList") === null) {
-      localStorage.setItem("toDoList", JSON.stringify([]));
+    //get working day
+    const today = Date().slice(0, 3).toLowerCase();
+    setDay(today);
+
+    if (localStorage.getItem('day') === null) {
+      localStorage.setItem('day', JSON.stringify(today));  //set first day
     } else {
-      setToDoList(JSON.parse(localStorage.getItem("toDoList")));
+      setDay(JSON.parse(localStorage.getItem('day')));
     }
   }, []);
 
 
   useEffect(() => {
-    //save to local storage
-    localStorage.setItem("toDoList", JSON.stringify(toDoList));
-  }, [toDoList, slct]);
+    //get todo list
+    if (localStorage.getItem(`toDoList${day}`) === null) {
+      localStorage.setItem(`toDoList${day}`, JSON.stringify([]));
+    } else {
+      setToDoList(JSON.parse(localStorage.getItem(`toDoList${day}`)));
+    }
+  }, [day]);
+
+
+  //get items from local storage
+  useEffect(() => {
+    //save working day
+    localStorage.setItem('day', JSON.stringify(day));
+
+    //save todo list
+    localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
+  }, [toDoList, slct, day]);
 
 
   useEffect(() => {
@@ -47,10 +70,12 @@ function App() {
   }, [toDoList, slct]);
 
 
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="title">Task Tracker App</h1>
+        <h1 className="title">Task Tracker</h1>
+        <h5 className="title2">Your Weekly Task Management App</h5>
         <h5 className="title2">Developed by Y3.</h5>
       </header>
       <Form
@@ -59,6 +84,8 @@ function App() {
         toDoList={toDoList}
         setToDoList={setToDoList}
       />
+
+      <Days day={day} setDay={setDay} />
 
       {toDoList.length !== 0 ? (
         <Tabs
@@ -86,11 +113,17 @@ function App() {
           filteredList={filteredList}
           setFilteredList={setFilteredList}
           slct={slct}
+          editDropDown={editDropDown}
+          setEditDropDown={setEditDropDown}
+          editID={editID}
+          setEditID={setEditID}
+
         />
       )}
     </div>
   );
 }
+
 
 
 export default App;

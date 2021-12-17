@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/TodoItem.module.css";
 
-const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
+const TodoItem = ({ clickedItem, toDoList, setToDoList, slct, setEditDropDown, setEditID }) => {
 
   const [isDraggable, setIsDraggable] = useState(true);
 
@@ -18,6 +18,10 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
     })
   };
 
+  const editTaskHandler = () => {
+    setEditDropDown(true);
+    setEditID(clickedItem.id);
+  }
 
   const completedTaskHandler = () => {
     setToDoList(
@@ -52,6 +56,11 @@ const TodoItem = ({ clickedItem, toDoList, setToDoList, slct }) => {
       <button className={`${styles["check-btn"]} ${clickedItem.completed ? styles.checkDone : ''}`} onClick={completedTaskHandler}>
         <i className="far fa-check-square fa-lg"></i>
       </button>
+
+      <button className={styles["edit-btn"]} onClick={editTaskHandler}>
+        <i className="far fa-edit"></i>
+      </button>
+
       <button className={styles["trash-btn"]} onClick={deleteTaskHandler}>
         <i className="far fa-trash-alt fa-lg"></i>
       </button>
