@@ -15,8 +15,13 @@
 }
 
 .title2 {
-  padding: 1vh;
-  padding-bottom: 5vh;
+  padding-top: 1.1vh;
   color: rgba(255, 255, 255, 0.637);
   text-align: center;
+  opacity: 0.9;
+}
+
+.title2:last-child {
+  padding-bottom: 5vh;
+  opacity: 0.8;
 }

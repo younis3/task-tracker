@@ -52,7 +52,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="title">Task Tracker App</h1>
+        <h1 className="title">Task Tracker</h1>
+        <h5 className="title2">Your Weekly Task Management App</h5>
         <h5 className="title2">Developed by Y3.</h5>
       </header>
       <Form
