@@ -16,8 +16,8 @@
 }
 
 .editBorder {
-  height: 25%;
-  width: 80%;
+  height: 30%;
+  width: 35%;
   border: solid 2px rgba(107, 12, 94, 0.432);
   background-color: rgba(255, 255, 255, 0.479);
   display: flex;
@@ -64,7 +64,7 @@
   margin-top: 1vh;
   margin-right: 2vw;
   background-color: rgb(241, 236, 239);
-  width: 14vw;
+  width: 3vw;
   cursor: pointer;
   opacity: 0.6;
 }
@@ -76,9 +76,9 @@
 }
 
 .saveBtn {
-  padding: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
   font-size: 16px;
   color: rgb(255, 255, 255);
   background-color: rgb(109, 126, 151);
@@ -89,7 +89,7 @@
   margin-right: 2vw;
   margin-left: 2vw;
   position: absolute;
-  bottom: 8%;
+  bottom: 7%;
 }
 
 .closeBtn {
@@ -111,6 +111,20 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .editBorder {
+    height: 25%;
+    width: 80%;
+  }
+  .day {
+    width: 14vw;
+  }
+  .saveBtn {
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    bottom: 8%;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
