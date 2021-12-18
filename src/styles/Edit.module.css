@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0.8;
+  opacity: 0.9;
   position: relative;
   padding: 5px;
 }
@@ -47,6 +47,8 @@
   font-weight: 700;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: italic;
+  text-transform: capitalize;
 }
 
 .days {
@@ -61,12 +63,15 @@
 .day {
   text-align: center;
   margin-left: 2vw;
-  margin-top: 1vh;
+  margin-top: 1.2vh;
   margin-right: 2vw;
+  padding-top: 3px;
+  padding-bottom: 3px;
   background-color: rgb(241, 236, 239);
   width: 3vw;
   cursor: pointer;
   opacity: 0.6;
+  text-transform: uppercase;
 }
 
 .curDay {
@@ -90,6 +95,7 @@
   margin-left: 2vw;
   position: absolute;
   bottom: 7%;
+  text-transform: uppercase;
 }
 
 .closeBtn {
@@ -112,11 +118,11 @@
 
 @media only screen and (max-width: 950px) {
   .editBorder {
-    height: 25%;
-    width: 80%;
+    height: 28%;
+    width: 85%;
   }
   .day {
-    width: 14vw;
+    width: 13.5vw;
   }
   .saveBtn {
     padding: 5px;

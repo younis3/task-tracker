@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import styles from "../styles/Edit.module.css";
 
 const Edit = ({ day, setEditToggle, editItem, setToDoList, filteredList }) => {
+
   const [changedDay, setChangedDay] = useState(day);
 
   const saveChange = () => {
+    if (editItem.day !== changedDay) {      //don't save if user chooses same day
+      editItem.day = changedDay;
 
-    editItem.day = changedDay;
-
-    //save moved item to local storage
-    if (localStorage.getItem(`toDoList${changedDay}`) === null) {
-      localStorage.setItem(`toDoList${changedDay}`, JSON.stringify([editItem]));
+      //save moved item to local storage
+      if (localStorage.getItem(`toDoList${changedDay}`) === null) {
+        localStorage.setItem(`toDoList${changedDay}`, JSON.stringify([editItem]));
+      }
+      else {
+        let ListToChange = JSON.parse(localStorage.getItem(`toDoList${changedDay}`));
+        ListToChange.push(editItem);
+        localStorage.setItem(`toDoList${changedDay}`, JSON.stringify(ListToChange));
+      }
+      setToDoList(filteredList.filter((el) => el.id !== editItem.id));
     }
-    else {
-      let ListToChange = JSON.parse(localStorage.getItem(`toDoList${changedDay}`));
-      ListToChange.push(editItem);
-      localStorage.setItem(`toDoList${changedDay}`, JSON.stringify(ListToChange));
-    }
-
-    setToDoList(filteredList.filter((el) => el.id !== editItem.id));
-
     closeEditHandler();
   }
 
