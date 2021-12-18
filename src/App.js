@@ -51,7 +51,7 @@ function App() {
 
 
   useEffect(() => {
-    //toggle filtering toDoList - days & options (view all items/completed/uncompleted)
+    //toggle filtering options (view all items/completed/uncompleted)
     switch (slct) {
       case "completed":
         setFilteredList(toDoList.filter((el) => el.completed === true));
@@ -142,8 +142,11 @@ function App() {
         setEditToggle={setEditToggle}
         day={day}
         editItem={editItem}
+        setEditItem={setEditItem}
         toDoList={toDoList}
         setToDoList={setToDoList}
+        filteredList={filteredList}
+        setFilteredList={setFilteredList}
       />}
     </div>
   );

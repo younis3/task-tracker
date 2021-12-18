@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import styles from "../styles/Edit.module.css";
 
-const Edit = ({ day, setEditToggle, editItem, toDoList, setToDoList }) => {
+const Edit = ({ day, setEditToggle, editItem, setEditItem, toDoList, setToDoList, filteredList, setFilteredList }) => {
   const [changedDay, setChangedDay] = useState(day);
 
   const saveChange = () => {
-    setToDoList(
-      toDoList.map((todo) => {
-        if (todo.id === editItem.id) {
-          return { ...todo, day: changedDay };
-        }
-        return todo;
-      }))
+
+
+
+    editItem.day = changedDay;
+
+
+
+
+    //save moved item to local storage
+    if (localStorage.getItem(`toDoList${changedDay}`) === null) {
+      localStorage.setItem(`toDoList${changedDay}`, JSON.stringify([editItem]));
+    }
+    else {
+      let ListToChange = JSON.parse(localStorage.getItem(`toDoList${changedDay}`));
+      ListToChange.push(editItem);
+      // setToDoList(ListToChange);
+      localStorage.setItem(`toDoList${changedDay}`, JSON.stringify(ListToChange));
+      // setToDoList(filteredList);
+    }
+
+    setToDoList(filteredList.filter((el) => el.id !== editItem.id));
+
+
     closeEditHandler();
 
   }
