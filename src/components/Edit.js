@@ -39,7 +39,7 @@ const Edit = ({ day, setEditToggle, editItem, setToDoList, filteredList }) => {
     <div className={styles.editContainer}>
       <div className={styles.editBorder}>
         <h3 className={styles.editTitle}>Change Task Day</h3>
-        <h3 className={styles.edit}>{`${editItem.text} ${editItem.day}`}</h3>
+        <h3 className={styles.edit}>{editItem.text}</h3>
         <ul className={styles.days}>
           <li
             className={`${styles.day} ${changedDay === "sun" ? styles.curDay : ""
