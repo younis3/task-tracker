@@ -17,9 +17,9 @@
 .form-input {
   width: 80%;
   border: 3px solid;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
   padding-left: 4px;
   font-weight: 400;
   font-size: larger;
