@@ -6,7 +6,7 @@ const Edit = ({ day, setEditToggle, editItem, setToDoList, filteredList }) => {
   const [changedDay, setChangedDay] = useState(day);
 
   const saveChange = () => {
-    if (editItem.day !== changedDay) {
+    if (editItem.day !== changedDay) {      //don't save if user chooses same day
       editItem.day = changedDay;
 
       //save moved item to local storage
