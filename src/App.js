@@ -94,7 +94,6 @@ function App() {
       app.style.overflowY = 'scroll';
     }
     else {
-      // app.classList.remove('overlay');
       app.style.position = 'fixed';
       app.style.overflowY = 'hidden';
     }
