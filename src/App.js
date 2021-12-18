@@ -72,9 +72,8 @@ function App() {
     localStorage.setItem('day', JSON.stringify(day));
 
     //save todo list
-    console.log(toDoList);
     localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
-    console.log(JSON.parse(localStorage.getItem(`toDoList${day}`)));
+
   }, [toDoList, day]);
 
 
@@ -107,7 +106,7 @@ function App() {
 
       <Days day={day} setDay={setDay} />
 
-      {filteredList.length !== 0 ? (
+      {toDoList.length !== 0 ? (
         <Tabs
           slct={slct}
           setSlct={setSlct}
@@ -115,7 +114,7 @@ function App() {
           setToDoList={setToDoList}
         />) : (<div></div>)}
 
-      {filteredList.length !== 0 && <Progress toDoList={toDoList} day={day} />}
+      {toDoList.length !== 0 && <Progress toDoList={toDoList} day={day} />}
 
       {slct === "all" ? (
         <DraggableTodoList
