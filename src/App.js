@@ -23,8 +23,8 @@ function App() {
   const [removeMsg, setRemoveMsg] = useState(false);
 
 
+  //get working day
   useEffect(() => {
-    //get working day
     const today = Date().slice(0, 3).toLowerCase();
     setDay(today);
 
@@ -48,9 +48,8 @@ function App() {
   }, [day]);
 
 
-
+  //toggle filtering options (view all items/completed/uncompleted)
   useEffect(() => {
-    //toggle filtering options (view all items/completed/uncompleted)
     switch (slct) {
       case "completed":
         setFilteredList(toDoList.filter((el) => el.completed === true));
@@ -64,7 +63,6 @@ function App() {
   }, [toDoList, slct, day]);
 
 
-
   //save items to local storage
   useEffect(() => {
     //save working day
@@ -74,7 +72,6 @@ function App() {
     localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
 
   }, [toDoList, day]);
-
 
 
   //toggle background overlay when opening edit task modal
@@ -89,6 +86,21 @@ function App() {
   }, [editToggle])
 
 
+  //allow page to scroll if todolist reaches certain length
+  useEffect(() => {
+    const app = document.getElementById('app');
+    if (toDoList.length > 7) {
+      app.style.position = 'relative';
+      app.style.overflowY = 'scroll';
+    }
+    else {
+      // app.classList.remove('overlay');
+      app.style.position = 'fixed';
+      app.style.overflowY = 'hidden';
+    }
+  }, [toDoList])
+
+
   //show/hide double click to remove msg
   useEffect(() => {
     if (removeMsg) {
@@ -97,6 +109,7 @@ function App() {
       }, 2800);
     }
   }, [removeMsg])
+
 
 
   return (
@@ -149,6 +162,7 @@ function App() {
           setRemoveMsg={setRemoveMsg}
         />
       )}
+
       {removeMsg && <p className="removeMsgHint" id="removeMsg">double click to remove</p>}
 
       {editToggle && <Edit className='overlay'
