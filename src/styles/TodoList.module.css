@@ -8,16 +8,19 @@
 
 .toDoList {
   min-width: 50%;
-  margin-top: 5.8vh;
-  margin-bottom: 3vh;
+  margin-top: 5.7vh;
+  margin-bottom: 2vh;
 }
 
 .dragTip {
   color: white;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.6;
   font-weight: 400;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-transform: capitalize;
+  /* margin-bottom: 0.8vh; */
+  padding-bottom: 1.4vh;
 }
 
 @media only screen and (max-width: 950px) {

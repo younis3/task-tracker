@@ -3,7 +3,7 @@ import styles from "../styles/TodoList.module.css";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 
-const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredList, slct, setEditToggle, setEditItem }) => {
+const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredList, slct, setEditToggle, setEditItem, setRemoveMsg }) => {
 
   const reOrderList = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -60,6 +60,7 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
                             slct={slct}
                             setEditToggle={setEditToggle}
                             setEditItem={setEditItem}
+                            setRemoveMsg={setRemoveMsg}
                           />
                         </div>
                       )}

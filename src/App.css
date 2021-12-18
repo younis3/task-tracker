@@ -9,7 +9,7 @@
 }
 
 .title {
-  padding-top: 5.2vh;
+  padding-top: 5.8vh;
   color: rgba(255, 255, 255, 0.82);
   text-align: center;
 }
@@ -27,5 +27,30 @@
 }
 
 .overlay {
-  background-color: rgba(2, 0, 0, 0.22);
+  background-color: rgba(2, 0, 0, 0.08);
+}
+
+.removeMsgHint {
+  color: white;
+  font-weight: 500;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  animation-name: msgConfirmDelete;
+  animation-duration: 2.8s;
+  animation-fill-mode: forwards;
+  text-transform: capitalize;
+  color: rgb(238, 238, 238);
+  text-align: center;
+  padding-bottom: 1.2vh;
+}
+
+@keyframes msgConfirmDelete {
+  0% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import TodoItem from "./TodoItem";
 import styles from "../styles/TodoList.module.css";
 
-const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditToggle, setEditItem }) => {
+const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditToggle, setEditItem, setRemoveMsg }) => {
 
 
   return (
@@ -17,6 +17,7 @@ const TodoList = ({ toDoList, setToDoList, filteredList, slct, setEditToggle, se
             slct={slct}
             setEditToggle={setEditToggle}
             setEditItem={setEditItem}
+            setRemoveMsg={setRemoveMsg}
           />
         ))}
       </ul>

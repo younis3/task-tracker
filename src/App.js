@@ -20,6 +20,7 @@ function App() {
   const [day, setDay] = useState(null);
   const [editToggle, setEditToggle] = useState(false);
   const [editItem, setEditItem] = useState(null);
+  const [removeMsg, setRemoveMsg] = useState(false);
 
 
   useEffect(() => {
@@ -75,6 +76,7 @@ function App() {
   }, [toDoList, day]);
 
 
+
   //toggle background overlay when opening edit task modal
   useEffect(() => {
     const app = document.getElementById('app');
@@ -85,6 +87,16 @@ function App() {
       app.classList.remove('overlay');
     }
   }, [editToggle])
+
+
+  //show/hide double click to remove msg
+  useEffect(() => {
+    if (removeMsg) {
+      setTimeout(() => {
+        setRemoveMsg(false);
+      }, 2800);
+    }
+  }, [removeMsg])
 
 
   return (
@@ -123,6 +135,7 @@ function App() {
           slct={slct}
           setEditToggle={setEditToggle}
           setEditItem={setEditItem}
+          setRemoveMsg={setRemoveMsg}
         />
       ) : (
         <TodoList
@@ -133,8 +146,11 @@ function App() {
           slct={slct}
           setEditToggle={setEditToggle}
           setEditItem={setEditItem}
+          setRemoveMsg={setRemoveMsg}
         />
       )}
+      {removeMsg && <p className="removeMsgHint" id="removeMsg">double click to remove</p>}
+
       {editToggle && <Edit className='overlay'
         day={day}
         setEditToggle={setEditToggle}
