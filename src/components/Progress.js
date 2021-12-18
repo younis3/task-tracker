@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Progress.module.css";
 
-const Progress = ({ toDoList }) => {
+const Progress = ({ toDoList, day }) => {
 
   const [percent, setPercent] = useState(0);
 
   useEffect(() => {
     let totalCompleted = 0;
-    toDoList.map((todo) => {
-      return todo.completed ? totalCompleted++ : totalCompleted;
+    let currDayCount = 0;
+    toDoList.forEach(todo => {
+      if (todo.day === day) {
+        currDayCount++;
+        if (todo.completed) {
+          totalCompleted++;
+        }
+      }
     });
-    setPercent((totalCompleted / toDoList.length).toFixed(2) * 100);
-  }, [toDoList]);
+    if (currDayCount !== 0) {
+      setPercent((totalCompleted / currDayCount).toFixed(2) * 100);
+    }
+  }, [toDoList, day]);
 
   return (
     <div className={styles["progressBar-container"]}>

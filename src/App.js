@@ -13,16 +13,15 @@ import Edit from "./components/Edit";
 
 function App() {
 
+
   const [input, setInput] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
   const [filteredList, setFilteredList] = useState([]);
-  const [day, setDay] = useState("");
+  const [day, setDay] = useState(null);
   const [editToggle, setEditToggle] = useState(false);
   const [editItem, setEditItem] = useState(null);
 
-
-  //get items from local storage
 
   useEffect(() => {
     //get working day
@@ -37,9 +36,12 @@ function App() {
   }, []);
 
 
+
+  //get items from local storage
   useEffect(() => {
     //get todo list
     if (localStorage.getItem(`toDoList${day}`) === null) {
+      setToDoList([]);
       localStorage.setItem(`toDoList${day}`, JSON.stringify([]));
     } else {
       setToDoList(JSON.parse(localStorage.getItem(`toDoList${day}`)));
@@ -47,18 +49,9 @@ function App() {
   }, [day]);
 
 
-  //get items from local storage
-  useEffect(() => {
-    //save working day
-    localStorage.setItem('day', JSON.stringify(day));
-
-    //save todo list
-    localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
-  }, [toDoList, slct, day]);
-
 
   useEffect(() => {
-    //toggle options (view all items/completed/uncompleted)
+    //toggle filtering options (view all items/completed/uncompleted)
     switch (slct) {
       case "completed":
         setFilteredList(toDoList.filter((el) => el.completed === true));
@@ -69,7 +62,19 @@ function App() {
       default:
         setFilteredList(toDoList);
     }
-  }, [toDoList, slct]);
+  }, [toDoList, slct, day]);
+
+
+
+  //save items to local storage
+  useEffect(() => {
+    //save working day
+    localStorage.setItem('day', JSON.stringify(day));
+
+    //save todo list
+    localStorage.setItem(`toDoList${day}`, JSON.stringify(toDoList));
+
+  }, [toDoList, day]);
 
 
   //toggle background overlay when opening edit task modal
@@ -87,8 +92,8 @@ function App() {
   return (
     <div className="App" id="app">
       <header className="App-header">
-        <h1 className="title">Task Tracker</h1>
-        <h5 className="title2">Your Weekly Task Management App</h5>
+        <h1 className="title">Task Tracker Pro</h1>
+        <h5 className="title2">Your Daily Task Management App</h5>
         <h5 className="title2">Developed by Y3.</h5>
       </header>
       <Form
@@ -96,6 +101,7 @@ function App() {
         setInput={setInput}
         toDoList={toDoList}
         setToDoList={setToDoList}
+        day={day}
       />
 
       <Days day={day} setDay={setDay} />
@@ -108,7 +114,7 @@ function App() {
           setToDoList={setToDoList}
         />) : (<div></div>)}
 
-      {toDoList.length !== 0 && <Progress toDoList={toDoList} />}
+      {toDoList.length !== 0 && <Progress toDoList={toDoList} day={day} />}
 
       {slct === "all" ? (
         <DraggableTodoList
@@ -131,7 +137,13 @@ function App() {
           setEditItem={setEditItem}
         />
       )}
-      {editToggle && <Edit className='overlay' setEditToggle={setEditToggle} editItem={editItem} day={day} />}
+      {editToggle && <Edit className='overlay'
+        day={day}
+        setEditToggle={setEditToggle}
+        editItem={editItem}
+        setToDoList={setToDoList}
+        filteredList={filteredList}
+      />}
     </div>
   );
 }

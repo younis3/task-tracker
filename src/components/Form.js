@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Form.module.css";
 
-const Form = ({ input, setInput, toDoList, setToDoList }) => {
+const Form = ({ input, setInput, toDoList, setToDoList, day }) => {
 
   const inputHandler = (e) => {
     setInput(e.target.value);
@@ -18,7 +18,7 @@ const Form = ({ input, setInput, toDoList, setToDoList }) => {
     //add item to list
     setToDoList([
       ...toDoList,
-      { text: input, completed: false, id: Math.random() * 1000 },
+      { text: input, completed: false, id: Math.random() * 1000, day: day },
     ]);
     setInput("");
   };

@@ -12,15 +12,18 @@ const DraggableTodoList = ({ toDoList, setToDoList, filteredList, setFilteredLis
     return result;
   };
 
+
   const onEnd = (result) => {
     if (!result.destination) return;
     setFilteredList(
       reOrderList(filteredList, result.source.index, result.destination.index)
     );
+
     setToDoList(
       reOrderList(filteredList, result.source.index, result.destination.index)
     );
-  };
+
+  }
 
 
   return (
