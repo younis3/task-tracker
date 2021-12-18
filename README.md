@@ -1,7 +1,7 @@
 ## Task Tracker Pro
 A complete task management app
 
-<img src="https://github.com/younis3/task-tracker/blob/main/images/appDemo1.png" width=340 align=right>
+<img src="https://github.com/younis3/task-tracker/blob/main/images/appDemo1.png" width=330 align=right>
 
 ### Demo Link: https://demotasktracker.netlify.app
 
