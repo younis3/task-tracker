@@ -139,14 +139,11 @@ function App() {
         />
       )}
       {editToggle && <Edit className='overlay'
-        setEditToggle={setEditToggle}
         day={day}
+        setEditToggle={setEditToggle}
         editItem={editItem}
-        setEditItem={setEditItem}
-        toDoList={toDoList}
         setToDoList={setToDoList}
         filteredList={filteredList}
-        setFilteredList={setFilteredList}
       />}
     </div>
   );
