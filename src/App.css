@@ -9,7 +9,7 @@
 }
 
 .title {
-  padding-top: 4vh;
+  padding-top: 5.2vh;
   color: rgba(255, 255, 255, 0.82);
   text-align: center;
 }
@@ -22,7 +22,7 @@
 }
 
 .title2:last-child {
-  padding-bottom: 4vh;
+  padding-bottom: 4.2vh;
   opacity: 0.8;
 }
 
