@@ -23,4 +23,3 @@ _____________________________________
 ##### Tech:
 * ReactJS
 * React-Beautiful-Dnd (for drag & drop)
-
