@@ -19,7 +19,7 @@ A complete task management app
 - Reorder tasks in the list
 - All days of the week plus 'Later' tab
 - Change task day
-- Delete tasks
+- Delete tasks (Double click for confirmation)
 - Clear all completed tasks
 - Animations (Progress Bar & When deleting tasks)
 
