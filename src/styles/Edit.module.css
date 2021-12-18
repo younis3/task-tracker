@@ -43,7 +43,7 @@
   color: rgba(78, 15, 50, 0.719);
   opacity: 0.9;
   position: absolute;
-  top: 20%;
+  top: 19%;
   font-weight: 700;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -121,13 +121,17 @@
     height: 28%;
     width: 85%;
   }
+
   .day {
-    width: 13.5vw;
+    width: 13.2vw;
+    height: 3vh;
+    font-size: 14px;
   }
+
   .saveBtn {
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 6px;
+    padding-left: 18px;
+    padding-right: 18px;
     font-size: 15px;
     bottom: 8%;
   }
