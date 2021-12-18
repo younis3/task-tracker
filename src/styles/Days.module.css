@@ -36,9 +36,11 @@
   color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   padding-bottom: 4px;
+  padding-top: 2px;
   padding-right: 6px;
   padding-left: 6px;
   margin-left: 1vw;
+  margin-bottom: 2px;
   border: none;
   background-color: rgba(228, 94, 134, 0.438);
 }

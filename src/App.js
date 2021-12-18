@@ -13,7 +13,6 @@ import Edit from "./components/Edit";
 
 function App() {
 
-
   const [input, setInput] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const [slct, setSlct] = useState("all");
@@ -34,7 +33,6 @@ function App() {
       setDay(JSON.parse(localStorage.getItem('day')));
     }
   }, []);
-
 
 
   //get items from local storage
@@ -147,7 +145,6 @@ function App() {
     </div>
   );
 }
-
 
 
 export default App;
