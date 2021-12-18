@@ -1,12 +1,13 @@
-### Task Tracker Pro
-
+## Task Tracker Pro
 A complete task management app
 
-#### Demo Link: https://demotasktracker.netlify.app
+<img src="https://github.com/younis3/task-tracker/blob/main/images/appDemo1.png" width=360 align=right>
+
+### Demo Link: https://demotasktracker.netlify.app
 
 ---
 
-##### Project Type: Front-End
+###### Project Type: Front-End
 
 ##### Project Features:
 
