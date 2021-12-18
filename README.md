@@ -3,12 +3,12 @@ A complete task management app
 
 ### Demo Link: https://demotasktracker.netlify.app
 
+###### Project Type: Front-End
+
 <img src="https://github.com/younis3/task-tracker/blob/main/images/appDemo1.png" width=330 align=right>
 
 ---
-
-###### Project Type: Front-End
-
+##### _
 ##### Project Features:
 
 - Add new tasks
