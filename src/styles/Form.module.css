@@ -1,0 +1,75 @@
+/* Form Styles*/
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 60%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-input {
+  width: 80%;
+  border: 3px solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-left: 4px;
+  font-weight: 400;
+  font-size: larger;
+  background-color: rgba(240, 248, 255, 0);
+  color: white;
+  outline: none;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #743ad5, #d53a9d);
+  opacity: 0.9;
+}
+
+.form-input::placeholder {
+  color: rgba(243, 243, 243, 0.781);
+  font-family: FontAwesome;
+  font-size: 13px;
+}
+
+.form-btn {
+  cursor: pointer;
+  width: 50px;
+  font-size: 35px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(243, 243, 243, 0.82);
+  margin-left: 2vw;
+  margin-right: 0vw;
+}
+
+@media only screen and (max-width: 950px) {
+  .form {
+    width: 96%;
+  }
+
+  .form-input {
+    width: 88%;
+  }
+
+  .form-btn {
+    width: 12%;
+    margin-left: 6vw;
+    margin-right: 1vw;
+  }
+
+  .form-btn:hover {
+    color: rgba(243, 243, 243, 0.76);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .form-btn:hover {
+    color: rgba(243, 243, 243, 0.94);
+  }
+}

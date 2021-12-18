@@ -1,0 +1,27 @@
+/* TodoList Styles*/
+
+.toDoListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toDoList {
+  min-width: 50%;
+  margin-top: 5.8vh;
+  margin-bottom: 3vh;
+}
+
+.dragTip {
+  color: white;
+  text-align: center;
+  opacity: 0.5;
+  font-weight: 400;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+@media only screen and (max-width: 950px) {
+  .toDoList {
+    min-width: 95%;
+  }
+}
