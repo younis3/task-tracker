@@ -3,7 +3,7 @@ A complete task management app
 
 ### Demo Link: https://demotasktracker.netlify.app
 
-###### Project Type: Front-End
+###### Project Type: Front-End (REACT)
 
 <img src="https://github.com/younis3/task-tracker/blob/main/images/appDemo1.png" width=330 align=right>
 
@@ -23,7 +23,7 @@ A complete task management app
 - Clear all completed tasks
 - Animations (Progress Bar & When deleting tasks)
 
-##### Tech:
+##### Technologies Used:
 
 - ReactJS
 - React-Beautiful-Dnd (for drag & drop)
