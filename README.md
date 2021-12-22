@@ -1,5 +1,5 @@
 ## Task Tracker Pro
-A complete task management app
+A Complete Task Management App
 
 ### Demo Link: https://demotasktracker.netlify.app
 
@@ -8,7 +8,8 @@ A complete task management app
 <img src="https://github.com/younis3/task-tracker/blob/main/images/appDemo1.png" width=330 align=right>
 
 ---
-##### _
+
+#### __
 ##### Project Features:
 
 - Add new tasks
@@ -23,7 +24,7 @@ A complete task management app
 - Clear all completed tasks
 - Animations (Progress Bar & When deleting tasks)
 
-##### Technologies Used:
+##### Technologies:
 
-- ReactJS
+- React JS
 - React-Beautiful-Dnd (for drag & drop)
